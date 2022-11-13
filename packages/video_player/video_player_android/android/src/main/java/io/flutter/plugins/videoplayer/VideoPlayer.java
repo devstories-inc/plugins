@@ -72,7 +72,10 @@ final class VideoPlayer {
     this.textureEntry = textureEntry;
     this.options = options;
 
-    ExoPlayer exoPlayer = new ExoPlayer.Builder(context).build();
+
+    MyRenderersFactory renderersFactory = new MyRenderersFactory(context, options.centerFrq);
+
+    ExoPlayer exoPlayer = new ExoPlayer.Builder(context, renderersFactory).build();
 
     Uri uri = Uri.parse(dataSource);
     DataSource.Factory dataSourceFactory;
